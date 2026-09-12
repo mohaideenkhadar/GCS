@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text font-sans antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-border-light rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-light rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-300 cursor-pointer text-sm sm:text-base;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-hover hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-success {
+    @apply btn bg-success text-white hover:bg-success/80;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger text-white hover:bg-danger/80;
+  }
+
+  .btn-small {
+    @apply px-3 py-1.5 text-xs sm:text-sm;
+  }
+
+  .btn-icon {
+    @apply w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border-none text-sm sm:text-base hover:scale-105;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl p-4 sm:p-6 border border-border shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:shadow-card-lg hover:border-primary-light;
+  }
+
+  .form-group {
+    @apply flex-1 min-w-[150px];
+  }
+
+  .form-group label {
+    @apply block font-semibold text-text mb-1 text-xs sm:text-sm;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    @apply w-full px-3 py-2 border border-border rounded-lg bg-white text-sm sm:text-base transition-all duration-300 font-sans focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary;
+  }
+
+  .status-badge {
+    @apply px-2 py-0.5 rounded-full text-xs font-semibold inline-block whitespace-nowrap;
+  }
+
+  .progress-bar {
+    @apply w-full h-1.5 sm:h-2 bg-border rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-[2000] flex items-center justify-center;
+  }
+
+  .modal-content {
+    @apply bg-white rounded-2xl max-w-[550px] w-[95%] max-h-[90vh] flex flex-col shadow-card-lg animate-slideUp;
+  }
+
+  .modal-header {
+    @apply flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 border-b-2 border-border;
+  }
+
+  .modal-body {
+    @apply px-4 sm:px-6 py-4 sm:py-5 overflow-y-auto flex-1;
+  }
+
+  .modal-footer {
+    @apply px-4 sm:px-6 py-3 sm:py-4 border-t-2 border-border flex justify-end gap-3 flex-wrap;
+  }
+
+  .popup-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-[3000] flex items-center justify-center;
+  }
+
+  .popup-content {
+    @apply bg-white rounded-2xl max-w-[420px] w-[95%] max-h-[80vh] flex flex-col shadow-card-lg animate-slideUp;
+  }
+
+  .popup-header {
+    @apply flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 border-b-2 border-border;
+  }
+
+  .popup-body {
+    @apply px-4 sm:px-6 py-4 sm:py-5 overflow-y-auto flex-1;
+  }
+
+  .popup-footer {
+    @apply px-4 sm:px-6 py-3 sm:py-4 border-t-2 border-border flex justify-center gap-3 flex-wrap;
+  }
+}
+
+@layer utilities {
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(120%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.3s ease;
+  }
+
+  .animate-slideInRight {
+    animation: slideInRight 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

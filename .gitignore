@@ -1,0 +1,6 @@
+# .gitignore
+node_modules/
+.next/
+.env*.local
+.DS_Store
+# Don't add 'public/' here - we want it tracked
